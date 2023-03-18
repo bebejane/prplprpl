@@ -5,25 +5,12 @@ export default function Home() {
   const ref = useRef<HTMLAudioElement | null>(null)
   const refV = useRef<HTMLVideoElement | null>(null)
 
-  useEffect(() => {
-    console.log('hej')
-    ref.current?.addEventListener('canplay', () => {
-      console.log('xcan')
-    })
-    ref.current?.play()
-  }, [])
-
   return (
     <>
-      <audio
-        ref={ref}
-        src={'/Goodnight sleepless.m4a'}
-        autoPlay={true}
-      />
+      <audio ref={ref} src={'/Goodnight sleepless.m4a'} />
       <div className={styles.container} onClick={() => ref.current?.play()}>
         <video ref={refV} src={'/20201230000000_doublelows.mp4'} muted={true} autoPlay={true} loop={true} />
       </div>
-
     </>
   )
 }
